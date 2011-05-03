@@ -1,6 +1,12 @@
 #!/usr/bin/perl
 
 package KiokuDB::Backend::DBI;
+BEGIN {
+  $KiokuDB::Backend::DBI::AUTHORITY = 'cpan:NUFFIN';
+}
+BEGIN {
+  $KiokuDB::Backend::DBI::VERSION = '1.19';
+}
 use Moose;
 
 use Moose::Util::TypeConstraints;
