@@ -988,6 +988,7 @@ sub drop_tables {
 
 sub DEMOLISH {
     my $self = shift;
+    return if $_[0];
 
     if ( $self->has_storage ) {
         $self->storage->disconnect;
