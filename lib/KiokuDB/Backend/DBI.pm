@@ -439,6 +439,7 @@ sub entry_to_row {
 sub insert_rows {
     my ( $self, $insert, $update, $dbic ) = @_;
 
+    my $colinfo = $self->schema->source('entries')->columns_info;
     my $g = $self->schema->txn_scope_guard;
 
     $self->dbh_do(sub {
@@ -459,8 +460,6 @@ sub insert_rows {
                 }
             }
         }
-
-        my $colinfo = $self->schema->source('entries')->columns_info;
 
         my %rows = ( insert => $insert, update => $update );
 
